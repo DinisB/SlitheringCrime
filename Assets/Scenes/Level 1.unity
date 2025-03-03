@@ -13659,9 +13659,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: "If (tarantula == 1) and when key keypad2 is pressed:\n         
-    Teleports this object to the position of Player\n          sets variable tarantula
-    to 0\n          changes the Y position of object Laser, adding -5000.\n"
+  _explanation: "If (tarantula == 1) and when key s is pressed:\n          Teleports
+    this object to the position of Player\n          sets variable tarantula to 0\n         
+    changes the Y position of object Laser, adding -5000.\n"
   description: 
   enableTrigger: 1
   allowRetrigger: 1
@@ -13695,7 +13695,7 @@ MonoBehaviour:
     action: {fileID: 965590542}
   inputType: 1
   buttonName: 
-  key: 258
+  key: 115
   axis: 
   deadArea: {x: -0.2, y: 0.2}
   continuous: 0
@@ -15383,11 +15383,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showInfo: 1
-  _explanation: "If (lobo == 1) and when key keypad1 is pressed (this can only happen
-    every 1 seconds):\n          Teleports this object to the position of Player\n         
-    Changes the current velocity of Player to a speed between 0 and 1000 units/sec,
-    in the up direction.The speed will be clamped between 1000 and 1000.\n         
-    \n          sets variable lobo to 0\n"
+  _explanation: "If (lobo == 1) and (IsGrounded(Player) and when key a is pressed
+    (this can only happen every 1 seconds):\n          Teleports this object to the
+    position of Player\n          Changes the current velocity of Player to a speed
+    between 0 and 1000 units/sec, in the up direction.The speed will be clamped between
+    1000 and 1000.\n          \n          sets variable lobo to 0\n"
   description: 
   enableTrigger: 1
   allowRetrigger: 1
@@ -15412,6 +15412,25 @@ MonoBehaviour:
     percentageCompare: 0
     tile: {fileID: 0}
     tileSet: {fileID: 0}
+  - negate: 0
+    valueHandler: {fileID: 0}
+    variable: {fileID: 0}
+    valueType: 12
+    tag: {fileID: 0}
+    tagCountRangeEnabled: 0
+    tagCountRange: 0
+    sourceTransform: {fileID: 0}
+    rigidBody: {fileID: 0}
+    axis: 0
+    probe: {fileID: 0}
+    movementPlatformer: {fileID: 743703790}
+    comparison: 0
+    value: 1
+    comparisonValueHandler: {fileID: 0}
+    comparisonVariable: {fileID: 0}
+    percentageCompare: 0
+    tile: {fileID: 0}
+    tileSet: {fileID: 0}
   actions:
   - delay: 0
     action: {fileID: 1640479475}
@@ -15421,7 +15440,7 @@ MonoBehaviour:
     action: {fileID: 1640479481}
   inputType: 1
   buttonName: 
-  key: 257
+  key: 97
   axis: 
   deadArea: {x: -0.2, y: 0.2}
   continuous: 0
