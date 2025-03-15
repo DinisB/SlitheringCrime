@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
     private void Onjump(InputAction.CallbackContext context)
     {
         //verifica se está no chão, se sim, saltar
-        if (isGrounded)
+        if (isGrounded & !canClimb)
             rb.linearVelocity = new Vector2(rb.linearVelocityX, jump_force);
         isGrounded = false;
     }
@@ -87,7 +87,7 @@ public class PlayerScript : MonoBehaviour
     private void WolfAbility(InputAction.CallbackContext context)
     {
         //verifica se está no chão, se sim, saltar
-        if (isGrounded & CanUseWolfAbility)
+        if (isGrounded & CanUseWolfAbility & !canClimb)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocityX, 25f);
             isGrounded = false;
@@ -160,6 +160,8 @@ public class PlayerScript : MonoBehaviour
             //reativa lasers
             laser.SetActive(true);
         }
+
+        yield return new WaitForSeconds(4);
 
         UsedTarantula = false;
     }
