@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -64,20 +65,20 @@ public class PlayerScript : MonoBehaviour
 
     private void TarantulaAbility()
     {
-        //recolhe todos os objetos com tag laser
-        GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Laser");
-        foreach (GameObject go in gameObjectArray)
-            //verifica se pode usar a habilidade
-            if (!UsedTarantula)
+        //verifica se pode usar a habilidade
+        if (!UsedTarantula)
+        {
+            UsedTarantula = true;
+            //recolhe todos os objetos com tag laser
+            GameObject[] gameObjectArray = GameObject.FindGameObjectsWithTag("Laser");
+            //desativa lasers
+            foreach (GameObject go in gameObjectArray)
             {
-                {
-                    //desativa lasers
-                    go.SetActive(false);
-                    UsedTarantula = true;
-                    StartCoroutine(ReactivateLasers(gameObjectArray, 2f));
-                }
+                go.SetActive(false);
             }
-        //ativa timer de dois segundos para reativar
+            //ativa timer de dois segundos para reativar
+            StartCoroutine(ReactivateLasers(gameObjectArray, 2f));
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -94,7 +95,12 @@ public class PlayerScript : MonoBehaviour
         //morre se colidir com lasers
         if (collision.gameObject.tag == "Laser")
         {
-            Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -130,11 +136,5 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(4);
 
         UsedTarantula = false;
-    }
-
-    private IEnumerator ReactivateWolfAbility(float delay)
-    {
-        //espera os segundos
-        yield return new WaitForSeconds(delay);
     }
 }
