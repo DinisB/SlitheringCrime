@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
     private float speed = 10f;
-    private float jump_force = 15f;
+    private float jump_force = 17f;
     public Rigidbody2D rb;
     private bool isGrounded;
     private bool canClimb = false;
@@ -133,7 +133,7 @@ public class PlayerScript : MonoBehaviour
             laser.SetActive(true);
         }
 
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(1);
 
         UsedTarantula = false;
     }
