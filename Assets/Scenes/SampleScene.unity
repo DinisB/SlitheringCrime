@@ -3833,6 +3833,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0170b100daf9c14bbfdb578c9d869ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 286206814}
+  canva: {fileID: 1144019589}
 --- !u!212 &1191309951
 SpriteRenderer:
   m_ObjectHideFlags: 0
